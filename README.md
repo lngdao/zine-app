@@ -1,6 +1,6 @@
 # ZINE
 
-<br/>Đây là repo dành cho việc build các IPA đã được biên dịch của ZINE (tương lai có thể sẽ có thêm apk cho các thiết bị Android)
+<br/>Đây là repo dành cho việc lưu trữ các file IPA đã được biên dịch của ZINE (tương lai có thể sẽ có thêm apk cho các thiết bị Android)
 
 ---
 
