@@ -1,28 +1,30 @@
-# ZINE
+<p align="center">
+ <img width=200px height=200px src="https://github.com/user-attachments/assets/ab439311-122d-41a0-9b99-0f57cc13e702"/>
+</p>
 
-<br/>Đây là repo dành cho việc lưu trữ các file IPA đã được biên dịch của ZINE (tương lai có thể sẽ có thêm apk cho các thiết bị Android)
+<h1 align="center"> ZINE </h1>
 
----
+<br/>ZINE is an application to watch online movies, TV series, anime and many other contents and especially free
 
-<details>
-<summary><h2>Screenshots</h2></summary>
+## Features:
 
-<h3 align="center">
-
-![photo_2025-02-05 12 15 31](https://github.com/user-attachments/assets/68c24477-7710-4edd-ace6-b79082bf74c7)
-![photo_2025-02-05 12 16 03](https://github.com/user-attachments/assets/0a5d6417-89bd-46a9-96ec-c442119fae2b)
-![photo_2025-02-05 12 16 19](https://github.com/user-attachments/assets/a7dce486-815e-47e9-b573-e765cb0c3d14)
-![photo_2025-02-05 12 16 31](https://github.com/user-attachments/assets/dfd3071a-c22f-429e-987f-ab88188ed5cc)
-![photo_2025-02-05 12 16 46](https://github.com/user-attachments/assets/e9c9a949-abc2-4060-bd2d-80e6c272b0d5)
-![photo_2025-02-05 12 16 58](https://github.com/user-attachments/assets/88c18fbc-cd3b-4a4a-8ff5-6c48621d7bb0)
-![photo_2025-02-05 12 17 21](https://github.com/user-attachments/assets/0c0c7184-2e77-4258-aadc-0263cd8c75d8)
-
-</h3>
-
-</details>
+- **High speed streaming film and no Ads**
+- **Search film**
+- **List film by genre**
+- **Bookmark**
+- **Download, continue watching, sharing, backup,... (upcoming)**
 
 ---
 
-## Credits:<br/>
+## Screenshots
 
-[KKPhim](https://www.kkphim.vip/) - _Nguồn API_<br/>
+| Home                                                                                                                | List                                                                                                                | Detail                                                                                                                | Search                                                                         |
+| ------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------ |
+| <img src="https://github.com/user-attachments/assets/68c24477-7710-4edd-ace6-b79082bf74c7" alt="Home" width="200"/> | <img src="https://github.com/user-attachments/assets/0a5d6417-89bd-46a9-96ec-c442119fae2b" alt="List" width="200"/> | <img src="https://github.com/user-attachments/assets/dfd3071a-c22f-429e-987f-ab88188ed5cc" alt="Detail" width="200"/> | <img src="https://github.com/user-attachments/assets/7d59ff6f-4f81-4e13-a892-87d756bf3935" alt="Search" width="200"/> |
+
+---
+
+## Credits:
+
+- [RNE](https://github.com/studio-hysteric/react-native-essential)
+- [KKPhim API](https://www.kkphim.vip/)
