@@ -14,6 +14,9 @@
 - **Bookmark**
 - **Download, continue watching, sharing, backup,... (upcoming)**
 
+## Download
+Get the app from our [releases page](https://github.com/lngdao/zine-app/releases).
+
 ---
 
 ## Screenshots
