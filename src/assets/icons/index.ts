@@ -1,0 +1,10 @@
+export { default as ic_arrow_left } from './resources/ic_arrow-left.svg';
+export { default as ic_arrow_right } from './resources/ic_arrow-right.svg';
+export { default as ic_chevron_right } from './resources/ic_chevron-right.svg';
+export { default as ic_eye_close } from './resources/ic_eye-close.svg';
+export { default as ic_eye_open } from './resources/ic_eye-open.svg';
+export { default as ic_globe } from './resources/ic_globe.svg';
+export { default as ic_logo } from './resources/ic_logo.svg';
+export { default as ic_palette } from './resources/ic_palette.svg';
+export { default as ic_password } from './resources/ic_password.svg';
+export { default as ic_warn } from './resources/ic_warn.svg';

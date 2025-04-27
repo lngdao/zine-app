@@ -1,0 +1,255 @@
+# BEGIN Generated NPM license entries
+rename:
+  "@gorhom_bottom-sheet": '@gorhom/bottom-sheet'
+  "@hookform_resolvers": '@hookform/resolvers'
+  "@legendapp_list": '@legendapp/list'
+  "@monicon_metro": '@monicon/metro'
+  "@monicon_native": '@monicon/native'
+  "@react-native-community_blur": '@react-native-community/blur'
+  "@react-native-community_netinfo": '@react-native-community/netinfo'
+  "@react-native-masked-view_masked-view": '@react-native-masked-view/masked-view'
+  "@react-native-menu_menu": '@react-native-menu/menu'
+  "@react-navigation_bottom-tabs": '@react-navigation/bottom-tabs'
+  "@react-navigation_native": '@react-navigation/native'
+  "@react-navigation_native-stack": '@react-navigation/native-stack'
+  "@react-navigation_stack": '@react-navigation/stack'
+  "@reduxjs_toolkit": '@reduxjs/toolkit'
+  "@shopify_flash-list": '@shopify/flash-list'
+manual:
+  - name: '@gorhom_bottom-sheet'
+    version: '5.0.6'
+    source: https://github.com/gorhom/react-native-bottom-sheet
+    file: '../node_modules/@gorhom/bottom-sheet/LICENSE'
+  - name: '@hookform_resolvers'
+    version: '3.10.0'
+    source: https://github.com/react-hook-form/resolvers
+    file: '../node_modules/@hookform/resolvers/LICENSE'
+  - name: '@legendapp_list'
+    version: '1.0.0-beta.20'
+    source: https://github.com/LegendApp/legend-list
+    file: '../node_modules/@legendapp/list/LICENSE'
+  - name: '@monicon_metro'
+    version: '1.2.2'
+    body: UNKNOWN
+  - name: '@monicon_native'
+    version: '1.2.2'
+    body: UNKNOWN
+  - name: '@react-native-community_blur'
+    version: '4.4.1'
+    source: https://github.com/react-native-community/react-native-blur
+    file: '../node_modules/@react-native-community/blur/LICENSE'
+  - name: '@react-native-community_netinfo'
+    version: '11.4.1'
+    source: https://github.com/react-native-netinfo/react-native-netinfo
+    file: '../node_modules/@react-native-community/netinfo/LICENSE'
+  - name: '@react-native-masked-view_masked-view'
+    version: '0.3.2'
+    source: https://github.com/react-native-masked-view/masked-view
+    file: '../node_modules/@react-native-masked-view/masked-view/LICENSE'
+  - name: '@react-native-menu_menu'
+    version: '1.2.2'
+    source: https://github.com/react-native-menu/menu
+    file: '../node_modules/@react-native-menu/menu/LICENSE'
+  - name: '@react-navigation_bottom-tabs'
+    version: '6.6.1'
+    source: https://github.com/react-navigation/react-navigation
+    file: '../node_modules/@react-navigation/bottom-tabs/LICENSE'
+  - name: '@react-navigation_native'
+    version: '6.1.18'
+    source: https://github.com/react-navigation/react-navigation
+    file: '../node_modules/@react-navigation/native/LICENSE'
+  - name: '@react-navigation_native-stack'
+    version: '6.11.0'
+    source: https://github.com/react-navigation/react-navigation
+    file: '../node_modules/@react-navigation/native-stack/LICENSE'
+  - name: '@react-navigation_stack'
+    version: '6.4.1'
+    source: https://github.com/react-navigation/react-navigation
+    file: '../node_modules/@react-navigation/stack/LICENSE'
+  - name: '@reduxjs_toolkit'
+    version: '2.5.1'
+    source: https://github.com/reduxjs/redux-toolkit
+    file: '../node_modules/@reduxjs/toolkit/LICENSE'
+  - name: '@shopify_flash-list'
+    version: '1.7.3'
+    source: https://github.com/Shopify/flash-list
+    file: '../node_modules/@shopify/flash-list/LICENSE.md'
+  - name: dayjs
+    version: '1.11.13'
+    source: https://github.com/iamkun/dayjs
+    file: '../node_modules/dayjs/LICENSE'
+  - name: i18next
+    version: '23.16.8'
+    source: https://github.com/i18next/i18next
+    file: '../node_modules/i18next/LICENSE'
+  - name: immer
+    version: '10.1.1'
+    source: https://github.com/immerjs/immer
+    file: '../node_modules/immer/LICENSE'
+  - name: import
+    version: '0.0.6'
+    source: https://github.com/hirokiosame/import
+    file: '../node_modules/import/LICENSE'
+  - name: ky
+    version: '1.7.4'
+    source: sindresorhus/ky
+    file: '../node_modules/ky/license'
+  - name: lodash
+    version: '4.17.21'
+    source: lodash/lodash
+    file: '../node_modules/lodash/LICENSE'
+  - name: moti
+    version: '0.29.0'
+    source: https://github.com/nandorojo/moti
+    body: MIT
+  - name: qs
+    version: '6.14.0'
+    source: https://github.com/ljharb/qs
+    file: '../node_modules/qs/LICENSE.md'
+  - name: react
+    version: '18.3.1'
+    source: https://github.com/facebook/react
+    file: '../node_modules/react/LICENSE'
+  - name: react-fast-compare
+    version: '3.2.2'
+    source: https://github.com/FormidableLabs/react-fast-compare
+    file: '../node_modules/react-fast-compare/LICENSE'
+  - name: react-hook-form
+    version: '7.54.2'
+    source: https://github.com/react-hook-form/react-hook-form
+    file: '../node_modules/react-hook-form/LICENSE'
+  - name: react-i18next
+    version: '14.1.3'
+    source: https://github.com/i18next/react-i18next
+    file: '../node_modules/react-i18next/LICENSE'
+  - name: react-native
+    version: '0.76.7'
+    source: https://github.com/facebook/react-native
+    file: '../node_modules/react-native/LICENSE'
+  - name: react-native-awesome-slider
+    version: '2.9.0'
+    source: https://github.com/alantoa/react-native-awesome-slider
+    file: '../node_modules/react-native-awesome-slider/LICENSE'
+  - name: react-native-device-info
+    version: '14.0.4'
+    source: https://github.com/react-native-device-info/react-native-device-info
+    file: '../node_modules/react-native-device-info/LICENSE'
+  - name: react-native-error-boundary
+    version: '1.2.7'
+    source: https://github.com/carloscuesta/react-native-error-boundary
+    file: '../node_modules/react-native-error-boundary/LICENSE'
+  - name: react-native-fast-image
+    version: '8.6.3'
+    source: https://github.com/DylanVann/react-native-fast-image
+    file: '../node_modules/react-native-fast-image/LICENSE'
+  - name: react-native-figma-squircle
+    version: '0.3.5'
+    source: https://github.com/tienphaw/react-native-figma-squircle
+    file: '../node_modules/react-native-figma-squircle/LICENSE'
+  - name: react-native-gesture-handler
+    version: '2.23.0'
+    source: https://github.com/software-mansion/react-native-gesture-handler
+    file: '../node_modules/react-native-gesture-handler/LICENSE'
+  - name: react-native-haptic-feedback
+    version: '2.3.3'
+    source: https://github.com/mkuczera/react-native-haptic-feedback
+    file: '../node_modules/react-native-haptic-feedback/LICENSE'
+  - name: react-native-ios-context-menu
+    version: '3.1.0'
+    source: https://github.com/dominicstop/react-native-ios-context-menu
+    file: '../node_modules/react-native-ios-context-menu/LICENSE'
+  - name: react-native-ios-utilities
+    version: '5.1.1'
+    source: https://github.com/dominicstop/react-native-ios-utilities
+    file: '../node_modules/react-native-ios-utilities/LICENSE'
+  - name: react-native-keyboard-controller
+    version: '1.16.2'
+    source: https://github.com/kirillzyusko/react-native-keyboard-controller
+    file: '../node_modules/react-native-keyboard-controller/LICENSE'
+  - name: react-native-legal
+    version: '1.1.1'
+    source: https://github.com/callstackincubator/react-native-legal
+    file: '../node_modules/react-native-legal/LICENSE'
+  - name: react-native-linear-gradient
+    version: '2.8.3'
+    source: https://github.com/react-native-linear-gradient/react-native-linear-gradient
+    file: '../node_modules/react-native-linear-gradient/LICENSE'
+  - name: react-native-mmkv
+    version: '2.12.2'
+    source: https://github.com/mrousavy/react-native-mmkv
+    file: '../node_modules/react-native-mmkv/LICENSE'
+  - name: react-native-orientation-director
+    version: '2.2.0'
+    source: https://github.com/gladiuscode/react-native-orientation-director
+    file: '../node_modules/react-native-orientation-director/LICENSE'
+  - name: react-native-reanimated
+    version: '3.16.7'
+    source: https://github.com/software-mansion/react-native-reanimated
+    file: '../node_modules/react-native-reanimated/LICENSE'
+  - name: react-native-reanimated-carousel
+    version: '4.0.2'
+    source: https://github.com/dohooo/react-native-reanimated-carousel
+    file: '../node_modules/react-native-reanimated-carousel/LICENSE'
+  - name: react-native-safe-area-context
+    version: '4.14.1'
+    source: https://github.com/th3rdwave/react-native-safe-area-context
+    file: '../node_modules/react-native-safe-area-context/LICENSE'
+  - name: react-native-screens
+    version: '3.35.0'
+    source: https://github.com/software-mansion/react-native-screens
+    file: '../node_modules/react-native-screens/LICENSE'
+  - name: react-native-svg
+    version: '15.11.1'
+    source: https://github.com/react-native-community/react-native-svg
+    file: '../node_modules/react-native-svg/LICENSE'
+  - name: react-native-system-navigation-bar
+    version: '2.6.4'
+    source: https://github.com/kadiraydinli/react-native-system-navigation-bar
+    file: '../node_modules/react-native-system-navigation-bar/LICENSE'
+  - name: react-native-turbo-image
+    version: '1.22.1'
+    source: https://github.com/duguyihou/react-native-turbo-image
+    file: '../node_modules/react-native-turbo-image/LICENSE'
+  - name: react-native-uuid
+    version: '2.0.3'
+    source: https://github.com/eugenehp/react-native-uuid
+    file: '../node_modules/react-native-uuid/LICENSE'
+  - name: react-native-video
+    version: '6.10.0'
+    source: https://github.com/TheWidlarzGroup/react-native-video
+    file: '../node_modules/react-native-video/LICENSE'
+  - name: react-native-webview
+    version: '13.13.2'
+    source: https://github.com/react-native-webview/react-native-webview
+    file: '../node_modules/react-native-webview/LICENSE'
+  - name: react-redux
+    version: '9.2.0'
+    source: https://github.com/reduxjs/react-redux
+    file: '../node_modules/react-redux/LICENSE.md'
+  - name: react-singleton-hook
+    version: '4.0.1'
+    source: https://github.com/Light-Keeper/react-singleton-hook
+    file: '../node_modules/react-singleton-hook/LICENSE.md'
+  - name: redux-logger
+    version: '3.0.6'
+    source: https://github.com/theaqua/redux-logger
+    file: '../node_modules/redux-logger/LICENSE'
+  - name: sonner-native
+    body: UNKNOWN
+  - name: swr
+    version: '2.3.2'
+    source: https://github.com/vercel/swr
+    file: '../node_modules/swr/LICENSE'
+  - name: use-immer
+    version: '0.9.0'
+    source: https://github.com/mweststrate/use-immer
+    file: '../node_modules/use-immer/LICENSE'
+  - name: zeego
+    version: '2.0.4'
+    source: https://github.com/nandorojo/zeego
+    file: '../node_modules/zeego/LICENSE'
+  - name: zod
+    version: '3.24.1'
+    source: https://github.com/colinhacks/zod
+    file: '../node_modules/zod/LICENSE'
+# END Generated NPM license entries

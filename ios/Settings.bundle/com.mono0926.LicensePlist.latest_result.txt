@@ -1,0 +1,723 @@
+name: APNGKit, nameSpecified: 
+body: The MIT License (MIT…
+version: 2.3.0
+
+name: APNGKit, nameSpecified: 
+body: The MIT License (MIT…
+version: 2.3.0
+
+name: boost, nameSpecified: 
+body: Boost Software Licen…
+version: 1.84.0
+
+name: boost, nameSpecified: 
+body: Boost Software Licen…
+version: 1.84.0
+
+name: BVLinearGradient, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 2.8.3
+
+name: BVLinearGradient, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 2.8.3
+
+name: ComputableLayout, nameSpecified: 
+body: Copyright (c) 2023 D…
+version: 0.7.0
+
+name: ComputableLayout, nameSpecified: 
+body: Copyright (c) 2023 D…
+version: 0.7.0
+
+name: ContextMenuAuxiliaryPreview, nameSpecified: 
+body: Copyright (c) 2023 d…
+version: 0.5.2
+
+name: ContextMenuAuxiliaryPreview, nameSpecified: 
+body: Copyright (c) 2023 d…
+version: 0.5.2
+
+name: Delegate, nameSpecified: 
+body: Copyright (c) 2021 W…
+version: 1.3.0
+
+name: Delegate, nameSpecified: 
+body: Copyright (c) 2021 W…
+version: 1.3.0
+
+name: DGSwiftUtilities, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 0.46.3
+
+name: DGSwiftUtilities, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 0.46.3
+
+name: DoubleConversion, nameSpecified: 
+body: Copyright 2006-2011,…
+version: 1.1.6
+
+name: DoubleConversion, nameSpecified: 
+body: Copyright 2006-2011,…
+version: 1.1.6
+
+name: fmt, nameSpecified: 
+body: Copyright (c) 2012 -…
+version: 9.1.0
+
+name: fmt, nameSpecified: 
+body: Copyright (c) 2012 -…
+version: 9.1.0
+
+name: Gifu, nameSpecified: 
+body: The MIT License (MIT…
+version: 3.5.1
+
+name: Gifu, nameSpecified: 
+body: The MIT License (MIT…
+version: 3.5.1
+
+name: glog, nameSpecified: 
+body: Copyright (c) 2008, …
+version: 0.3.5
+
+name: glog, nameSpecified: 
+body: Copyright (c) 2008, …
+version: 0.3.5
+
+name: hermes-engine, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 0.76.7
+
+name: hermes-engine, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 0.76.7
+
+name: libwebp, nameSpecified: 
+body: Copyright (c) 2010, …
+version: 1.5.0
+
+name: libwebp, nameSpecified: 
+body: Copyright (c) 2010, …
+version: 1.5.0
+
+name: LicensePlist, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 3.27.1
+
+name: LicensePlist, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 3.27.1
+
+name: MMKV, nameSpecified: 
+body: Tencent is pleased t…
+version: 2.1.0
+
+name: MMKV, nameSpecified: 
+body: Tencent is pleased t…
+version: 2.1.0
+
+name: MMKVCore, nameSpecified: 
+body: Tencent is pleased t…
+version: 2.1.0
+
+name: MMKVCore, nameSpecified: 
+body: Tencent is pleased t…
+version: 2.1.0
+
+name: RCT-Folly, nameSpecified: 
+body: 
+                   …
+version: 2024.01.01.00
+
+name: RCT-Folly, nameSpecified: 
+body: 
+                   …
+version: 2024.01.01.00
+
+name: React, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 0.76.7
+
+name: React, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 0.76.7
+
+name: React-Core, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 0.76.7
+
+name: React-Core, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 0.76.7
+
+name: react-native-blur, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 4.4.1
+
+name: react-native-blur, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 4.4.1
+
+name: react-native-ios-context-menu, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 3.1.0
+
+name: react-native-ios-context-menu, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 3.1.0
+
+name: react-native-ios-utilities, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 5.1.1
+
+name: react-native-ios-utilities, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 5.1.1
+
+name: react-native-keyboard-controller, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 1.16.2
+
+name: react-native-keyboard-controller, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 1.16.2
+
+name: react-native-menu, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 1.2.2
+
+name: react-native-menu, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 1.2.2
+
+name: react-native-mmkv, nameSpecified: 
+body: react-native-mmkv LI…
+version: 2.12.2
+
+name: react-native-mmkv, nameSpecified: 
+body: react-native-mmkv LI…
+version: 2.12.2
+
+name: react-native-netinfo, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 11.4.1
+
+name: react-native-netinfo, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 11.4.1
+
+name: react-native-orientation-director, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 2.2.0
+
+name: react-native-orientation-director, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 2.2.0
+
+name: react-native-safe-area-context, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 4.14.1
+
+name: react-native-safe-area-context, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 4.14.1
+
+name: react-native-turbo-image, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 1.22.1
+
+name: react-native-turbo-image, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 1.22.1
+
+name: react-native-video, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 6.10.0
+
+name: react-native-video, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 6.10.0
+
+name: react-native-webview, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 13.13.2
+
+name: react-native-webview, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 13.13.2
+
+name: ReactNativeLegal, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 1.1.1
+
+name: ReactNativeLegal, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 1.1.1
+
+name: RNCMaskedView, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 0.3.2
+
+name: RNCMaskedView, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 0.3.2
+
+name: RNDeviceInfo, nameSpecified: 
+body: The MIT License (MIT…
+version: 14.0.4
+
+name: RNDeviceInfo, nameSpecified: 
+body: The MIT License (MIT…
+version: 14.0.4
+
+name: RNFastImage, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 8.6.3
+
+name: RNFastImage, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 8.6.3
+
+name: RNFlashList, nameSpecified: 
+body: Copyright 2022-prese…
+version: 1.7.3
+
+name: RNFlashList, nameSpecified: 
+body: Copyright 2022-prese…
+version: 1.7.3
+
+name: RNGestureHandler, nameSpecified: 
+body: The MIT License (MIT…
+version: 2.23.0
+
+name: RNGestureHandler, nameSpecified: 
+body: The MIT License (MIT…
+version: 2.23.0
+
+name: RNReactNativeHapticFeedback, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 2.3.3
+
+name: RNReactNativeHapticFeedback, nameSpecified: 
+body: MIT License
+
+Copyrig…
+version: 2.3.3
+
+name: RNReanimated, nameSpecified: 
+body: The MIT License (MIT…
+version: 3.16.7
+
+name: RNReanimated, nameSpecified: 
+body: The MIT License (MIT…
+version: 3.16.7
+
+name: RNScreens, nameSpecified: 
+body: The MIT License (MIT…
+version: 3.35.0
+
+name: RNScreens, nameSpecified: 
+body: The MIT License (MIT…
+version: 3.35.0
+
+name: RNSVG, nameSpecified: 
+body: The MIT License (MIT…
+version: 15.11.1
+
+name: RNSVG, nameSpecified: 
+body: The MIT License (MIT…
+version: 15.11.1
+
+name: SDWebImage, nameSpecified: 
+body: Copyright (c) 2009-2…
+version: 5.11.1
+
+name: SDWebImage, nameSpecified: 
+body: Copyright (c) 2009-2…
+version: 5.11.1
+
+name: SDWebImageWebPCoder, nameSpecified: 
+body: Copyright (c) 2018 B…
+version: 0.8.5
+
+name: SDWebImageWebPCoder, nameSpecified: 
+body: Copyright (c) 2018 B…
+version: 0.8.5
+
+name: SocketRocket, nameSpecified: 
+body: BSD License
+
+For Soc…
+version: 0.7.1
+
+name: SocketRocket, nameSpecified: 
+body: BSD License
+
+For Soc…
+version: 0.7.1
+
+name: SwiftSVG, nameSpecified: 
+body: 
+SwiftSVG
+
+Copyright…
+version: 2.3.2
+
+name: SwiftSVG, nameSpecified: 
+body: 
+SwiftSVG
+
+Copyright…
+version: 2.3.2
+
+name: @gorhom_bottom-sheet, nameSpecified: @gorhom/bottom-sheet, version: 5.0.6
+body: MIT License
+
+Copyrig…
+
+name: @hookform_resolvers, nameSpecified: @hookform/resolvers, version: 3.10.0
+body: MIT License
+
+Copyrig…
+
+name: @legendapp_list, nameSpecified: @legendapp/list, version: 1.0.0-beta.20
+body: MIT License
+
+Copyrig…
+
+name: @monicon_metro, nameSpecified: @monicon/metro, version: 1.2.2
+body: UNKNOWN…
+
+name: @monicon_native, nameSpecified: @monicon/native, version: 1.2.2
+body: UNKNOWN…
+
+name: @react-native-community_blur, nameSpecified: @react-native-community/blur, version: 4.4.1
+body: MIT License
+
+Copyrig…
+
+name: @react-native-community_netinfo, nameSpecified: @react-native-community/netinfo, version: 11.4.1
+body: MIT License
+
+Copyrig…
+
+name: @react-native-masked-view_masked-view, nameSpecified: @react-native-masked-view/masked-view, version: 0.3.2
+body: MIT License
+
+Copyrig…
+
+name: @react-native-menu_menu, nameSpecified: @react-native-menu/menu, version: 1.2.2
+body: MIT License
+
+Copyrig…
+
+name: @react-navigation_bottom-tabs, nameSpecified: @react-navigation/bottom-tabs, version: 6.6.1
+body: MIT License
+
+Copyrig…
+
+name: @react-navigation_native, nameSpecified: @react-navigation/native, version: 6.1.18
+body: MIT License
+
+Copyrig…
+
+name: @react-navigation_native-stack, nameSpecified: @react-navigation/native-stack, version: 6.11.0
+body: MIT License
+
+Copyrig…
+
+name: @react-navigation_stack, nameSpecified: @react-navigation/stack, version: 6.4.1
+body: MIT License
+
+Copyrig…
+
+name: @reduxjs_toolkit, nameSpecified: @reduxjs/toolkit, version: 2.5.1
+body: MIT License
+
+Copyrig…
+
+name: @shopify_flash-list, nameSpecified: @shopify/flash-list, version: 1.7.3
+body: Copyright 2022-prese…
+
+name: dayjs, nameSpecified: , version: 1.11.13
+body: MIT License
+
+Copyrig…
+
+name: i18next, nameSpecified: , version: 23.16.8
+body: The MIT License (MIT…
+
+name: immer, nameSpecified: , version: 10.1.1
+body: MIT License
+
+Copyrig…
+
+name: import, nameSpecified: , version: 0.0.6
+body: Copyright (c) 2014, …
+
+name: ky, nameSpecified: , version: 1.7.4
+body: MIT License
+
+Copyrig…
+
+name: lodash, nameSpecified: , version: 4.17.21
+body: Copyright OpenJS Fou…
+
+name: moti, nameSpecified: , version: 0.29.0
+body: MIT…
+
+name: qs, nameSpecified: , version: 6.14.0
+body: BSD 3-Clause License…
+
+name: react, nameSpecified: , version: 18.3.1
+body: MIT License
+
+Copyrig…
+
+name: react-fast-compare, nameSpecified: , version: 3.2.2
+body: MIT License
+
+Copyrig…
+
+name: react-hook-form, nameSpecified: , version: 7.54.2
+body: MIT License
+
+Copyrig…
+
+name: react-i18next, nameSpecified: , version: 14.1.3
+body: The MIT License (MIT…
+
+name: react-native, nameSpecified: , version: 0.76.7
+body: MIT License
+
+Copyrig…
+
+name: react-native-awesome-slider, nameSpecified: , version: 2.9.0
+body: MIT License
+
+Copyrig…
+
+name: react-native-device-info, nameSpecified: , version: 14.0.4
+body: The MIT License (MIT…
+
+name: react-native-error-boundary, nameSpecified: , version: 1.2.7
+body: MIT License
+
+Copyrig…
+
+name: react-native-fast-image, nameSpecified: , version: 8.6.3
+body: MIT License
+
+Copyrig…
+
+name: react-native-figma-squircle, nameSpecified: , version: 0.3.5
+body: MIT License
+
+Copyrig…
+
+name: react-native-gesture-handler, nameSpecified: , version: 2.23.0
+body: The MIT License (MIT…
+
+name: react-native-haptic-feedback, nameSpecified: , version: 2.3.3
+body: MIT License
+
+Copyrig…
+
+name: react-native-ios-context-menu, nameSpecified: , version: 3.1.0
+body: MIT License
+
+Copyrig…
+
+name: react-native-ios-utilities, nameSpecified: , version: 5.1.1
+body: MIT License
+
+Copyrig…
+
+name: react-native-keyboard-controller, nameSpecified: , version: 1.16.2
+body: MIT License
+
+Copyrig…
+
+name: react-native-legal, nameSpecified: , version: 1.1.1
+body: MIT License
+
+Copyrig…
+
+name: react-native-linear-gradient, nameSpecified: , version: 2.8.3
+body: MIT License
+
+Copyrig…
+
+name: react-native-mmkv, nameSpecified: , version: 2.12.2
+body: react-native-mmkv LI…
+
+name: react-native-orientation-director, nameSpecified: , version: 2.2.0
+body: MIT License
+
+Copyrig…
+
+name: react-native-reanimated, nameSpecified: , version: 3.16.7
+body: The MIT License (MIT…
+
+name: react-native-reanimated-carousel, nameSpecified: , version: 4.0.2
+body: MIT License
+
+Copyrig…
+
+name: react-native-safe-area-context, nameSpecified: , version: 4.14.1
+body: MIT License
+
+Copyrig…
+
+name: react-native-screens, nameSpecified: , version: 3.35.0
+body: The MIT License (MIT…
+
+name: react-native-svg, nameSpecified: , version: 15.11.1
+body: The MIT License (MIT…
+
+name: react-native-system-navigation-bar, nameSpecified: , version: 2.6.4
+body: MIT License
+
+Copyrig…
+
+name: react-native-turbo-image, nameSpecified: , version: 1.22.1
+body: MIT License
+
+Copyrig…
+
+name: react-native-uuid, nameSpecified: , version: 2.0.3
+body: MIT License
+
+Copyrig…
+
+name: react-native-video, nameSpecified: , version: 6.10.0
+body: MIT License
+
+Copyrig…
+
+name: react-native-webview, nameSpecified: , version: 13.13.2
+body: MIT License
+
+Copyrig…
+
+name: react-redux, nameSpecified: , version: 9.2.0
+body: The MIT License (MIT…
+
+name: react-singleton-hook, nameSpecified: , version: 4.0.1
+body: MIT License
+
+Copyrig…
+
+name: redux-logger, nameSpecified: , version: 3.0.6
+body: Copyright (c) 2016 E…
+
+name: sonner-native, nameSpecified: , version: 
+body: UNKNOWN…
+
+name: swr, nameSpecified: , version: 2.3.2
+body: MIT License
+
+Copyrig…
+
+name: use-immer, nameSpecified: , version: 0.9.0
+body: MIT License
+
+Copyrig…
+
+name: zeego, nameSpecified: , version: 2.0.4
+body: MIT License
+
+Copyrig…
+
+name: zod, nameSpecified: , version: 3.24.1
+body: MIT License
+
+Copyrig…
+
+add-version-numbers: false
+
+LicensePlist Version: 3.27.1

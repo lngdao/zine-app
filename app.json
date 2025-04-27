@@ -1,0 +1,10 @@
+{
+  "name": "zine",
+  "displayName": "ZINE",
+  "android": {
+    "package": "com.yongie2025.zine-public"
+  },
+  "ios": {
+    "bundleIdentifier": "com.yongie2025.zine-public"
+  }
+}
