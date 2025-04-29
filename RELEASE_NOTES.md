@@ -1,5 +1,5 @@
-# v1.1.0
+# v1.1.1
 
-* A new era for ZINE
-* Add filter feature
-* Fix some stuff
+* Fix filter not working properly
+* Add toast message when apply or reset filter
+* Update UIs

@@ -4,7 +4,7 @@ import { Platform, PlatformIOSStatic } from 'react-native';
 import DeviceInfo from 'react-native-device-info';
 
 export const APP_NAME = 'ZINE';
-export const APP_VER = '1.1.0';
+export const APP_VER = '1.1.1';
 export const APP_BUILD = '1';
 export const APP_DIST = 'public';
 
