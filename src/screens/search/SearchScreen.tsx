@@ -269,7 +269,7 @@ const SearchScreenComponent = () => {
 
   return (
     <ScreenShell scrollable={false} header={<Box h={topInset + 10} />}>
-      <Box px={15} row alignItems="center" gap={12}>
+      <Box px={15} row alignItems="center" gap={10}>
         <Box
           row
           flex
@@ -285,7 +285,7 @@ const SearchScreenComponent = () => {
             row
             pr={inputValue.length && 10}
             alignItems="center"
-            h={44}
+            h={40}
           >
             <Box.Animated style={iconStyle}>
               <Monicon name="ri:search-line" color="#9f9fa2" size={18} />
@@ -348,8 +348,8 @@ const SearchScreenComponent = () => {
                 entering={FadeIn}
                 onPress={show}
                 bg={'#272729'}
-                w={44}
-                h={44}
+                w={40}
+                ratio={1}
                 rounded={8}
                 center
               >

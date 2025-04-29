@@ -2,7 +2,6 @@ import React from 'react';
 import { Box } from '../box';
 import SettingSection from '../SettingSection';
 import { ScrollView } from 'react-native';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { MovieFilter } from './_types';
 
 export interface FilterShowHideProps {
@@ -38,11 +37,9 @@ const MainFilterPage = ({
   showYearFilter = true,
   showSortFilter,
 }: Props) => {
-  const { bottom: bottomInset } = useSafeAreaInsets();
-
   return (
-    <Box px={15} flex>
-      <ScrollView contentContainerStyle={{ paddingBottom: bottomInset }}>
+    <Box px={15} wFull hFull>
+      <ScrollView contentContainerStyle={{ paddingBottom: 100 }}>
         <SettingSection.Group>
           {showTypeFilter && (
             <SettingSection

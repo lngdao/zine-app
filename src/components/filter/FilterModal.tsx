@@ -21,6 +21,8 @@ import DetailFilterPage from './DetailFilterPage';
 import { FadeIn, FadeOut } from 'react-native-reanimated';
 import { Filter, FilterType, MovieFilter } from './_types';
 import { DeviceEventEmitter } from 'react-native';
+import { showToast } from '../Toast';
+import _ from 'lodash';
 
 interface Props extends FilterShowHideProps {
   Trigger: (actions: { show: TFunction; hide: TFunction }) => React.ReactNode;
@@ -41,6 +43,7 @@ const FilterModal = (props: Props) => {
   const [isShowDetailFilter, setIsShowDetailFilter] = useState(false);
   const [filterType, setFilterType] = useState<FilterType>(FilterType.Type);
   const [movieFilter, setMovieFilter] = useState<MovieFilter>({});
+  const [inputSearch, setInputSearch] = useState('');
 
   const sheetRef = useRef<BottomSheetModal>(null);
   const pagerRef = useRef<PagerView>(null);
@@ -63,7 +66,7 @@ const FilterModal = (props: Props) => {
         DeviceEventEmitter.emit('emitter_filter_close');
       }
 
-      setMovieFilter(filters);
+      setTimeout(() => setMovieFilter(filters), 0);
     },
     [filters],
   );
@@ -77,7 +80,17 @@ const FilterModal = (props: Props) => {
     setIsShowDetailFilter(true);
   };
 
-  const handleOnFilterChange = (type: FilterType, filter: Filter) => {
+  const handleNavigateToMainFilterPage = () => {
+    if (inputSearch.length) {
+      setInputSearch('');
+    }
+    requestAnimationFrame(() => pagerRef.current?.setPage(0));
+    setIsShowDetailFilter(false);
+  };
+
+  const handleOnFilterChange = (type: FilterType, _filter: Filter | null) => {
+    const filter = _filter ?? undefined;
+
     switch (type) {
       case FilterType.Type:
         return setMovieFilter((prev) => ({ ...prev, type: filter }));
@@ -126,10 +139,7 @@ const FilterModal = (props: Props) => {
             <Touchable.Animated
               entering={FadeIn}
               ml={10}
-              onPress={() => {
-                requestAnimationFrame(() => pagerRef.current?.setPage(0));
-                setIsShowDetailFilter(false);
-              }}
+              onPress={handleNavigateToMainFilterPage}
             >
               <Monicon name="ri:arrow-left-s-line" size={26} color="#FFF" />
             </Touchable.Animated>
@@ -163,7 +173,7 @@ const FilterModal = (props: Props) => {
     return (
       <PagerView
         ref={pagerRef}
-        style={{ flex: 1 }}
+        style={{ width: '100%', height: '100%' }}
         initialPage={0}
         scrollEnabled={false}
       >
@@ -196,6 +206,8 @@ const FilterModal = (props: Props) => {
           }}
         />
         <DetailFilterPage
+          inputSearch={inputSearch}
+          setInputSearch={setInputSearch}
           initialFilter={selectedFilter}
           type={filterType}
           onChange={handleOnFilterChange}
@@ -212,7 +224,12 @@ const FilterModal = (props: Props) => {
           onPress={() => {
             setMovieFilter({});
             onApply({});
+            showToast({
+              msg: 'Đã đặt lại bộ lọc',
+              icon: 'ri:filter-2-line',
+            });
           }}
+          disabled={_.isEmpty(movieFilter)}
           flex
           row
           gap={8}
@@ -224,7 +241,12 @@ const FilterModal = (props: Props) => {
           onPress={() => {
             onApply(movieFilter);
             hide();
+            showToast({
+              msg: 'Đã áp dụng bộ lọc',
+              icon: 'ri:filter-fill',
+            });
           }}
+          disabled={_.isEmpty(movieFilter)}
           flex
           row
           gap={8}
@@ -243,7 +265,6 @@ const FilterModal = (props: Props) => {
         ref={sheetRef}
         onChange={handleSheetChanges}
         index={0}
-        snapPoints={[]}
         enablePanDownToClose
         enableContentPanningGesture={false}
         enableDynamicSizing

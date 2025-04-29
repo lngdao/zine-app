@@ -235,7 +235,7 @@ const ListScreenComponent = () => {
                 <Touchable onPress={show}>
                   <Monicon
                     name="ri:filter-3-fill"
-                    color={'#1f6efc'}
+                    color={_.isEmpty(filters) ? '#FFF' : '#1f6efc'}
                     size={22}
                   />
                 </Touchable>

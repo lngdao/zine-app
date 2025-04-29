@@ -1,28 +1,43 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Box } from '../box';
 import { Text } from '../text';
-import { ScrollView, TextInput } from 'react-native';
+import { ScrollView } from 'react-native';
 import Monicon from '@monicon/native';
 import SettingSection from '../SettingSection';
-import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { movieCountries, movieFormat, movieGenres, movieYear } from '@/config';
 import _ from 'lodash';
 import { FadeIn } from 'react-native-reanimated';
 import { Filter, FilterType } from './_types';
+import { BottomSheetTextInput } from '@gorhom/bottom-sheet';
+import { removeVietnameseTones } from '@/shared/utils/common';
 
 interface Props {
   type: FilterType;
-  onChange: (type: FilterType, filter: Filter) => void;
+  onChange: (type: FilterType, filter: Filter | null) => void;
   initialFilter?: Filter;
+  inputSearch: string;
+  setInputSearch: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const DetailFilterPage = ({ type, onChange, initialFilter }: Props) => {
-  const { bottom: bottomInset } = useSafeAreaInsets();
-
+const DetailFilterPage = ({
+  type,
+  onChange,
+  initialFilter,
+  inputSearch,
+  setInputSearch,
+}: Props) => {
   const [filters, setFilters] = useState<Filter[]>([]);
-  const [inputSearch, setInputSearch] = useState('');
-
   const [selectedFilter, setSelectedFilter] = useState<Filter | null>(null);
+
+  const searchData = useMemo(() => {
+    if (!inputSearch.length) return filters;
+
+    const normalizedSearchText = removeVietnameseTones(inputSearch);
+
+    return filters.filter((item) =>
+      removeVietnameseTones(item.name).includes(normalizedSearchText),
+    );
+  }, [inputSearch, filters]);
 
   useEffect(() => {
     switch (type) {
@@ -47,9 +62,7 @@ const DetailFilterPage = ({ type, onChange, initialFilter }: Props) => {
   }, [initialFilter]);
 
   useEffect(() => {
-    if (!_.isEmpty(selectedFilter)) {
-      onChange(type, selectedFilter);
-    }
+    onChange(type, selectedFilter);
   }, [selectedFilter]);
 
   const renderSearch = () => {
@@ -59,17 +72,17 @@ const DetailFilterPage = ({ type, onChange, initialFilter }: Props) => {
           <Monicon name="ri:search-line" color="#9f9fa2" size={18} />
         </Box>
         <Box flex>
-          <TextInput
-            value={inputSearch}
-            onChangeText={setInputSearch}
+          <BottomSheetTextInput
             style={{
-              color: '#FFF',
-              fontSize: 16,
               paddingVertical: 10,
+              fontSize: 16,
+              color: '#FFF',
               fontFamily: Text.fonts.inter.regular,
             }}
-            placeholder="Tìm kiếm"
-            placeholderTextColor={'#9f9fa2'}
+            value={inputSearch}
+            onChangeText={setInputSearch}
+            placeholder="Tìm kiếm tập phim..."
+            placeholderTextColor={'#dbdbdb'}
           />
         </Box>
       </Box>
@@ -77,15 +90,16 @@ const DetailFilterPage = ({ type, onChange, initialFilter }: Props) => {
   };
 
   return (
-    <Box px={15} flex>
+    <Box px={15} wFull hFull>
       {renderSearch()}
       <Box flex mt={10}>
         <ScrollView
+          style={{ flex: 1 }}
           showsVerticalScrollIndicator={false}
-          contentContainerStyle={{ paddingBottom: bottomInset }}
+          contentContainerStyle={{ paddingBottom: 100 }}
         >
           <SettingSection.Group>
-            {filters.map((filter, index) => {
+            {searchData.map((filter, index) => {
               const isSelect = _.isEqual(selectedFilter, filter);
 
               return (
@@ -103,7 +117,13 @@ const DetailFilterPage = ({ type, onChange, initialFilter }: Props) => {
                     )
                   }
                   onPress={() => {
-                    setSelectedFilter(filter);
+                    const isExist = _.isEqual(selectedFilter, filter);
+
+                    if (isExist) {
+                      setSelectedFilter(null);
+                    } else {
+                      setSelectedFilter(filter);
+                    }
                   }}
                 />
               );

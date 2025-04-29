@@ -51,6 +51,7 @@ import { useBookmark } from '@/shared/contexts/bookmarkContext';
 import { toast } from 'sonner-native';
 import useScreenDimensions from '@/shared/hooks/useScreenDimensions';
 import { useScreenOrientation } from '@/shared/hooks/useScreenOrientation';
+import { showToast } from '@/components/Toast';
 
 const AnimatedImage = Animated.createAnimatedComponent(Image);
 
@@ -127,22 +128,10 @@ const DetailScreenComponent = () => {
           content: data.content,
         },
       ]);
-      toast.custom(
-        <Box px={15}>
-          <Box py={12} px={10} rounded={6} overflow="hidden">
-            <BlurView
-              style={StyleSheet.absoluteFill}
-              blurType="dark"
-              blurAmount={15}
-              reducedTransparencyFallbackColor="white"
-            />
-            <Box row alignItems="center" gap={10}>
-              <Monicon name="ri:emotion-normal-line" size={24} color="#FFF" />
-              <Text>Đã xoá khỏi danh sách đã thích</Text>
-            </Box>
-          </Box>
-        </Box>,
-      );
+      showToast({
+        msg: 'Đã xoá khỏi danh sách đã thích',
+        icon: 'ri:emotion-normal-line',
+      });
     } else {
       bookmarkMovie(BOOKMARD_DEFAULT_ID, [
         {
@@ -156,36 +145,24 @@ const DetailScreenComponent = () => {
         },
       ]);
 
-      toast.custom(
-        <Box px={15}>
-          <Box py={12} px={10} rounded={6} overflow="hidden">
-            <BlurView
-              style={StyleSheet.absoluteFill}
-              blurType="dark"
-              blurAmount={15}
-              reducedTransparencyFallbackColor="white"
-            />
-            <Box row alignItems="center" justifyContent="space-between">
-              <Box row alignItems="center" gap={10}>
-                <Monicon name="ri:emotion-line" size={24} color="#FFF" />
-                <Text>Đã thêm vào danh sách đã thích</Text>
-              </Box>
-              <Touchable
-                onPress={() => {
-                  navigationHelper.navigate(SCREEN_NAME.Bookmark, {
-                    from: data.name,
-                  });
-                  setTimeout(() => toast.dismiss(), 200);
-                }}
-              >
-                <Text color="#1f6efc" fontFamily={Text.fonts.inter.semiBold}>
-                  Xem
-                </Text>
-              </Touchable>
-            </Box>
-          </Box>
-        </Box>,
-      );
+      showToast({
+        msg: 'Đã thêm vào danh sách đã thích',
+        icon: 'ri:emotion-line',
+        $right: (_toast, _toastId) => (
+          <Touchable
+            onPress={() => {
+              navigationHelper.navigate(SCREEN_NAME.Bookmark, {
+                from: data.name,
+              });
+              setTimeout(() => _toast.dismiss(_toastId), 200);
+            }}
+          >
+            <Text color="#1f6efc" fontFamily={Text.fonts.inter.semiBold}>
+              Xem
+            </Text>
+          </Touchable>
+        ),
+      });
     }
   };
 
