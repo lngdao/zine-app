@@ -4,7 +4,7 @@ import { Text } from '@/components/text';
 import TurboImage from '@/components/TurboImage';
 import { SCREEN_NAME } from '@/config';
 import UrlManager from '@/libs/url-manager';
-import { isValidURL } from '@/shared/utils/common';
+import { decodeHtmlEntities, isValidURL } from '@/shared/utils/common';
 import { navigationHelper } from '@/shared/utils/navigationHelper';
 import { MovieBanner, MovieCommon } from '@/types/models/movie';
 import React from 'react';
@@ -58,7 +58,7 @@ const SearchItem = ({ item }: Props) => {
             {item.name}
           </Text>
           <Text color="#747474" mt={3} size={12} numberOfLines={1}>
-            {item.origin_name}
+            {decodeHtmlEntities(item.origin_name)}
           </Text>
         </Box>
       </Box>

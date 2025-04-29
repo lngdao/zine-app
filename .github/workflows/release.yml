@@ -53,40 +53,40 @@ jobs:
           fi
           mv "$APK_RELEASE_PATH" ZINE.apk
 
-      - name: Setup Xcode
-        uses: maxim-lobanov/setup-xcode@v1
-        with:
-          xcode-version: '16.0'
+      # - name: Setup Xcode
+      #   uses: maxim-lobanov/setup-xcode@v1
+      #   with:
+      #     xcode-version: '16.0'
 
-      - name: Build and Archive iOS (Unsigned)
-        run: |
-          echo "Building workspace: ios/zine.xcworkspace, scheme: zine"
-          xcodebuild \
-            -workspace ios/zine.xcworkspace \
-            -scheme zine \
-            -configuration Release \
-            archive \
-            -archivePath build/zine.xcarchive \
-            CODE_SIGN_IDENTITY="" \
-            CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO
+      # - name: Build and Archive iOS (Unsigned)
+      #   run: |
+      #     echo "Building workspace: ios/zine.xcworkspace, scheme: zine"
+      #     xcodebuild \
+      #       -workspace ios/zine.xcworkspace \
+      #       -scheme zine \
+      #       -configuration Release \
+      #       archive \
+      #       -archivePath build/zine.xcarchive \
+      #       CODE_SIGN_IDENTITY="" \
+      #       CODE_SIGNING_REQUIRED=NO \
+      #       CODE_SIGNING_ALLOWED=NO
 
-      - name: Package Unsigned IPA from Archive
-        run: |
-          ARCHIVE_PATH="build/zine.xcarchive"
-          APP_NAME="zine.app"
-          APP_PATH_IN_ARCHIVE="$ARCHIVE_PATH/Products/Applications/$APP_NAME"
-          IPA_NAME="ZINE.ipa"
+      # - name: Package Unsigned IPA from Archive
+      #   run: |
+      #     ARCHIVE_PATH="build/zine.xcarchive"
+      #     APP_NAME="zine.app"
+      #     APP_PATH_IN_ARCHIVE="$ARCHIVE_PATH/Products/Applications/$APP_NAME"
+      #     IPA_NAME="ZINE.ipa"
 
-          if [ ! -d "$APP_PATH_IN_ARCHIVE" ]; then
-            ls -lR "$ARCHIVE_PATH/Products/Applications/"
-            exit 1
-          fi
+      #     if [ ! -d "$APP_PATH_IN_ARCHIVE" ]; then
+      #       ls -lR "$ARCHIVE_PATH/Products/Applications/"
+      #       exit 1
+      #     fi
 
-          mkdir Payload
-          cp -R "$APP_PATH_IN_ARCHIVE" Payload/
-          zip -r "$IPA_NAME" Payload/
-          rm -rf Payload
+      #     mkdir Payload
+      #     cp -R "$APP_PATH_IN_ARCHIVE" Payload/
+      #     zip -r "$IPA_NAME" Payload/
+      #     rm -rf Payload
 
       - name: Create GitHub Release and Upload Unsigned Builds
         uses: softprops/action-gh-release@v1

@@ -1,7 +1,6 @@
 import React from 'react';
 import { ScreenShell } from '@/components/screen-shell';
 import { Box } from '@/components/box';
-import SettingSection from './_components/SettingSection';
 import { Text } from '@/components/text';
 import { Linking } from 'react-native';
 import AnimatedHeader, {
@@ -24,6 +23,7 @@ import {
 import { RNAlert } from '@/components/RNAlert/RNAlert';
 import { useBookmark } from '@/shared/contexts/bookmarkContext';
 import { ReactNativeLegal } from 'react-native-legal';
+import SettingSection from '@/components/SettingSection';
 
 const ProfileScreen = () => {
   const scrollRef = useAnimatedRef<Animated.ScrollView>();
@@ -67,7 +67,7 @@ const ProfileScreen = () => {
               groupDescription="Trình phát WebView sẽ tự động được bật nếu luồng phát stream bị lỗi"
             >
               <SettingSection
-                onPress={toggleUseWebViewPlayer}
+                onPress={toggleUseWebViewPlayer as TFunction}
                 title={'Dùng WebView Player khi cần'}
                 subTitle={useWebViewPlayer ? 'Bật' : 'Tắt'}
               />

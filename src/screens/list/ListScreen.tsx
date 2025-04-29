@@ -14,7 +14,6 @@ import { Touchable } from '@/components/button';
 import { Box } from '@/components/box';
 import { Text } from '@/components/text';
 import Animated, {
-  runOnJS,
   useAnimatedScrollHandler,
   useSharedValue,
 } from 'react-native-reanimated';
@@ -24,15 +23,18 @@ import AnimatedHeader, {
 } from '@/components/AnimatedHeader';
 import { navigationHelper } from '@/shared/utils/navigationHelper';
 import { SCREEN_NAME } from '@/config';
-import { isValidURL } from '@/shared/utils/common';
+import { decodeHtmlEntities, isValidURL } from '@/shared/utils/common';
 import UrlManager from '@/libs/url-manager';
 import { FlashList } from '@shopify/flash-list';
 import { Skeleton } from 'moti/skeleton';
-import { SquircleView } from 'react-native-figma-squircle';
 import useScreenDimensions from '@/shared/hooks/useScreenDimensions';
 import { LegendListRenderItemProps } from '@legendapp/list';
 import { AnimatedLegendList } from '@legendapp/list/reanimated';
-import TurboImage from 'react-native-turbo-image';
+import FilterModal from '@/components/filter/FilterModal';
+import Monicon from '@monicon/native';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import { MovieFilter } from '@/components/filter/_types';
+import _ from 'lodash';
 
 const LazyTurboImage = React.lazy(() => import('@/components/TurboImage'));
 const REACH_END_THRESHOLD = 50;
@@ -41,18 +43,9 @@ const AnimatedFlashList = Animated.createAnimatedComponent(
   FlashList<MovieCommon | MovieBanner>,
 );
 
-const ListScreen = () => {
+const ListScreenComponent = () => {
   const { screenWidth } = useScreenDimensions();
   const animatedHeaderHeight = useAnimatedHeaderHeight();
-
-  const [data, setData] = React.useState<MovieCommon[] | MovieBanner[]>([]);
-  const [page, setPage] = React.useState(1);
-  const [isLastPage, setIsLastPage] = useState(false);
-  const [isFirstLoad, setIsFirstLoad] = useState(true);
-  const [isLoadmore, setIsLoadmore] = useState(false);
-
-  const scrollOffset = useSharedValue(0);
-  const isMomentumScrolling = useRef(false);
 
   const route = useRoute<any>();
 
@@ -60,6 +53,20 @@ const ListScreen = () => {
   const name = route.params?.name;
   const slug = route.params?.slug;
   const from = route.params?.from;
+
+  const [data, setData] = React.useState<MovieCommon[] | MovieBanner[]>([]);
+  const [page, setPage] = React.useState(1);
+  const [isLastPage, setIsLastPage] = useState(false);
+  const [isFirstLoad, setIsFirstLoad] = useState(true);
+  const [isLoadmore, setIsLoadmore] = useState(false);
+  const [filters, setFilters] = useState<MovieFilter>({});
+  const [isShowFilter] = useState(type !== 'recent');
+  const [isShowGenreFilter] = useState(type !== 'genre');
+  const [isShowRegionFilter] = useState(type !== 'country');
+  const [isShowYearFilter] = useState(type !== 'year');
+
+  const scrollOffset = useSharedValue(0);
+  const isMomentumScrolling = useRef(false);
 
   const handleMomentumScrollBegin = () => {
     isMomentumScrolling.current = true;
@@ -69,6 +76,18 @@ const ListScreen = () => {
     if (isLoadmore) return;
 
     const payload: any = { page, limit: 16 };
+
+    if (filters.genre) {
+      payload.category = filters.genre.slug;
+    }
+
+    if (filters.region) {
+      payload.country = filters.region.slug;
+    }
+
+    if (filters.year) {
+      payload.year = filters.year.slug;
+    }
 
     const targetAPI = (() => {
       if (type === 'recent') {
@@ -94,8 +113,9 @@ const ListScreen = () => {
 
     callAPIHelper({
       API: targetAPI as FetcherFunction,
-      // API: fetcher.movie.getMoviesByGenre,
-      beforeSend: () => setIsLoadmore(true),
+      beforeSend: () => {
+        setIsLoadmore(true);
+      },
       payload,
       onSuccess: (res: unknown) => {
         if (type === 'recent') {
@@ -107,15 +127,17 @@ const ListScreen = () => {
           const resData = res as ApiResponsePagination<MovieCommon>;
 
           setIsLastPage(page >= resData.data.params.pagination.totalPages);
-          setData((prev) => [...prev, ...resData.data.items]);
+
+          if (page === 1) {
+            setData(resData.data.items);
+          } else {
+            setData((prev) => [...prev, ...resData.data.items]);
+          }
         }
       },
       onFinally: () => {
         setIsLoadmore(false);
-
-        if (isFirstLoad) {
-          setIsFirstLoad(false);
-        }
+        setIsFirstLoad(false);
       },
     });
   };
@@ -132,22 +154,16 @@ const ListScreen = () => {
 
   const scrollHandler = useAnimatedScrollHandler((event) => {
     scrollOffset.value = event.contentOffset.y;
-
-    // const { contentOffset, contentSize, layoutMeasurement } = event;
-
-    // const numberOfPixelsFromBottomThreshold = REACH_END_THRESHOLD;
-    // const isNearBottom =
-    //   contentOffset.y + layoutMeasurement.height >=
-    //   contentSize.height / 2 - numberOfPixelsFromBottomThreshold;
-
-    // if (isNearBottom) {
-    //   runOnJS(loadMoreItems)();
-    // }
   });
 
   useEffect(() => {
     getData();
-  }, [page, type, slug]);
+  }, [page, type, slug, filters]);
+
+  useEffect(() => {
+    setPage(1);
+    setIsFirstLoad(true);
+  }, [filters]);
 
   const _renderItem = useCallback(
     ({ item, index }: LegendListRenderItemProps<MovieCommon | MovieBanner>) => {
@@ -194,7 +210,7 @@ const ListScreen = () => {
               <Box gap={3}>
                 <Text numberOfLines={1}>{item.name}</Text>
                 <Text color="#747474" size={12} numberOfLines={1}>
-                  {item.origin_name}
+                  {decodeHtmlEntities(item.origin_name)}
                 </Text>
               </Box>
             </Box>
@@ -212,46 +228,31 @@ const ListScreen = () => {
         backTitle={from}
         title={name}
         scrollOffset={scrollOffset}
+        rightComponent={
+          isShowFilter && (
+            <FilterModal
+              Trigger={({ show }) => (
+                <Touchable onPress={show}>
+                  <Monicon
+                    name="ri:filter-3-fill"
+                    color={'#1f6efc'}
+                    size={22}
+                  />
+                </Touchable>
+              )}
+              filters={filters}
+              onApply={(_filters) => {
+                setFilters(_filters);
+              }}
+              showTypeFilter={false}
+              showSubFilter={false}
+              showGenreFilter={isShowGenreFilter}
+              showRegionFilter={isShowRegionFilter}
+              showYearFilter={isShowYearFilter}
+            />
+          )
+        }
       />
-      {/* <Animated.FlatList
-        // estimatedItemSize={145}
-        contentContainerStyle={{
-          paddingHorizontal: 15,
-          paddingBottom: 60,
-          paddingTop: animatedHeaderHeight + 10,
-        }}
-        columnWrapperStyle={{ gap: 15 }}
-        ListHeaderComponent={
-          <AnimatedHeader.LargeTitle
-            title={name}
-            scrollOffset={scrollOffset}
-            ml={0}
-            mb={15}
-          />
-        }
-        numColumns={2}
-        removeClippedSubviews
-        data={isFirstLoad ? [...Array(16).keys()] : data}
-        showsVerticalScrollIndicator={false}
-        keyExtractor={(_, index) => `${index}`}
-        // initialNumToRender={10}
-        // maxToRenderPerBatch={10}
-        renderItem={_renderItem}
-        onScroll={scrollHandler}
-        scrollEventThrottle={16}
-        onEndReached={loadMoreItems}
-        // onEndReachedThreshold={0.00001}
-        onEndReachedThreshold={0.01}
-        onMomentumScrollBegin={handleMomentumScrollBegin}
-        ItemSeparatorComponent={() => <Box h={15} />}
-        ListFooterComponent={() =>
-          isLoadmore ? (
-            <Box center mt={15}>
-              <ActivityIndicator size={'small'} />
-            </Box>
-          ) : null
-        }
-      /> */}
       {isFirstLoad ? (
         <Box mt={animatedHeaderHeight + 10} px={15}>
           <AnimatedHeader.LargeTitle
@@ -283,7 +284,6 @@ const ListScreen = () => {
             paddingBottom: 30,
             paddingTop: animatedHeaderHeight + 10,
           }}
-          // columnWrapperStyle={{ gap: 15 }}
           ListHeaderComponent={
             <AnimatedHeader.LargeTitle
               title={name}
@@ -297,13 +297,10 @@ const ListScreen = () => {
           data={data}
           showsVerticalScrollIndicator={false}
           keyExtractor={(_, index) => `${index}`}
-          // initialNumToRender={10}
-          // maxToRenderPerBatch={10}
           renderItem={_renderItem}
           onScroll={scrollHandler}
           scrollEventThrottle={16}
           onEndReached={loadMoreItems}
-          // onEndReachedThreshold={0.00001}
           onEndReachedThreshold={0.4}
           onMomentumScrollBegin={handleMomentumScrollBegin}
           ItemSeparatorComponent={() => <Box h={15} />}
@@ -317,6 +314,14 @@ const ListScreen = () => {
         />
       )}
     </ScreenShell>
+  );
+};
+
+const ListScreen = () => {
+  return (
+    <BottomSheetModalProvider>
+      <ListScreenComponent />
+    </BottomSheetModalProvider>
   );
 };
 

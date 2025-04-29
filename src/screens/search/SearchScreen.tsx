@@ -24,11 +24,14 @@ import { LegendList, LegendListRenderItemProps } from '@legendapp/list';
 import { Skeleton } from 'moti/skeleton';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import SearchItem from './_components/SearchItem';
+import FilterModal from '@/components/filter/FilterModal';
+import { BottomSheetModalProvider } from '@gorhom/bottom-sheet';
+import { MovieFilter } from '@/components/filter/_types';
 
-const CHUNK_SIZE = 24;
+const CHUNK_SIZE = 16;
 const movieGenreValues = Object.values(movieGenres);
 
-const SearchScreen = () => {
+const SearchScreenComponent = () => {
   const { top: topInset } = useSafeAreaInsets();
 
   const [data, setData] = useState<MovieCommon[]>([]);
@@ -41,6 +44,9 @@ const SearchScreen = () => {
   const [isFirstFetching, setIsFirstFetching] = useState(true);
   const [isSearchInputFocus, setIsSearchInputFocus] = useState(false);
   const [isSearching, setIsSearching] = useState(false);
+  const [filters, setFilters] = useState<MovieFilter>({});
+
+  const isShowFilter = !isSearchInputFocus && Boolean(textSearchSubmit.length);
 
   const _searchIconTranslateX = useSharedValue(0);
   const _inputTranslateX = useSharedValue(0);
@@ -84,9 +90,23 @@ const SearchScreen = () => {
       setChunkIndex(0);
     }
 
+    const payload: any = { keyword: textSearchSubmit, limit: 64 };
+
+    if (filters.genre) {
+      payload.category = filters.genre.slug;
+    }
+
+    if (filters.region) {
+      payload.country = filters.region.slug;
+    }
+
+    if (filters.year) {
+      payload.year = filters.year.slug;
+    }
+
     callAPIHelper({
       API: fetcher.movie.getMoviesByKeyword,
-      payload: { keyword: textSearchSubmit },
+      payload,
       beforeSend() {
         setIsSearching(true);
       },
@@ -140,7 +160,7 @@ const SearchScreen = () => {
 
   useEffect(() => {
     handleOnSearch();
-  }, [textSearchSubmit]);
+  }, [textSearchSubmit, filters]);
 
   useEffect(() => {
     debouncedCheck(inputValue);
@@ -194,9 +214,62 @@ const SearchScreen = () => {
     );
   };
 
+  const renderRecommendMovies = () => {
+    return (
+      <Animated.ScrollView
+        style={{ marginTop: 15 }}
+        contentContainerStyle={{
+          paddingBottom: TAB_BAR_HEIGHT + 20,
+          paddingHorizontal: 15,
+        }}
+        refreshControl={
+          <RefreshControl refreshing={false} onRefresh={getRecommendMovie} />
+        }
+        showsVerticalScrollIndicator={false}
+      >
+        <Text mb={5} size={15} fontFamily={Text.fonts.inter.medium}>
+          Gợi ý
+        </Text>
+        {isFirstFetching ? (
+          _renderPlaceholder()
+        ) : (
+          <Box gap={5}>
+            {recommendData.map((item, index) => (
+              <SearchItem key={index} item={item} />
+            ))}
+          </Box>
+        )}
+      </Animated.ScrollView>
+    );
+  };
+
+  const renderSearchResult = () => {
+    return isSearching ? (
+      <Box px={15} mt={10}>
+        {_renderPlaceholder()}
+      </Box>
+    ) : (
+      <LegendList
+        estimatedItemSize={82}
+        style={{ marginTop: 10 }}
+        showsVerticalScrollIndicator={false}
+        contentContainerStyle={{
+          paddingHorizontal: 15,
+          paddingBottom: TAB_BAR_HEIGHT + 10,
+        }}
+        data={displayedItems}
+        keyExtractor={(_, index) => `${index}`}
+        renderItem={_renderItem}
+        onEndReached={loadMoreItems}
+        onEndReachedThreshold={0.01}
+        onMomentumScrollBegin={handleMomentumScrollBegin}
+      />
+    );
+  };
+
   return (
     <ScreenShell scrollable={false} header={<Box h={topInset + 10} />}>
-      <Box px={15} row alignItems="center" gap={15}>
+      <Box px={15} row alignItems="center" gap={12}>
         <Box
           row
           flex
@@ -212,6 +285,7 @@ const SearchScreen = () => {
             row
             pr={inputValue.length && 10}
             alignItems="center"
+            h={44}
           >
             <Box.Animated style={iconStyle}>
               <Monicon name="ri:search-line" color="#9f9fa2" size={18} />
@@ -238,6 +312,7 @@ const SearchScreen = () => {
                 returnKeyType="search"
                 enablesReturnKeyAutomatically
                 onSubmitEditing={(submitEvent) => {
+                  setFilters({});
                   setTextSearchSubmit(submitEvent.nativeEvent.text);
                 }}
               />
@@ -266,56 +341,46 @@ const SearchScreen = () => {
             <Text size={15}>Hủy</Text>
           </Touchable.Animated>
         )}
-      </Box>
-      {isSearchInputFocus || textSearchSubmit.length ? (
-        isSearching ? (
-          <Box px={15} mt={10}>
-            {_renderPlaceholder()}
-          </Box>
-        ) : (
-          <LegendList
-            estimatedItemSize={82}
-            style={{ marginTop: 10 }}
-            showsVerticalScrollIndicator={false}
-            contentContainerStyle={{
-              paddingHorizontal: 15,
-              paddingBottom: TAB_BAR_HEIGHT + 10,
+        {isShowFilter && (
+          <FilterModal
+            Trigger={({ show }) => (
+              <Touchable.Animated
+                entering={FadeIn}
+                onPress={show}
+                bg={'#272729'}
+                w={44}
+                h={44}
+                rounded={8}
+                center
+              >
+                <Monicon
+                  name="ri:filter-3-fill"
+                  color={_.isEmpty(filters) ? '#FFF' : '#1f6efc'}
+                  size={22}
+                />
+              </Touchable.Animated>
+            )}
+            filters={filters}
+            onApply={(_filters) => {
+              setFilters(_filters);
             }}
-            data={displayedItems}
-            keyExtractor={(_, index) => `${index}`}
-            renderItem={_renderItem}
-            onEndReached={loadMoreItems}
-            onEndReachedThreshold={0.01}
-            onMomentumScrollBegin={handleMomentumScrollBegin}
+            showTypeFilter={false}
+            showSubFilter={false}
           />
-        )
-      ) : (
-        <Animated.ScrollView
-          style={{ marginTop: 15 }}
-          contentContainerStyle={{
-            paddingBottom: TAB_BAR_HEIGHT + 20,
-            paddingHorizontal: 15,
-          }}
-          refreshControl={
-            <RefreshControl refreshing={false} onRefresh={getRecommendMovie} />
-          }
-          showsVerticalScrollIndicator={false}
-        >
-          <Text mb={5} size={15} fontFamily={Text.fonts.inter.medium}>
-            Gợi ý
-          </Text>
-          {isFirstFetching ? (
-            _renderPlaceholder()
-          ) : (
-            <Box gap={5}>
-              {recommendData.map((item, index) => (
-                <SearchItem key={index} item={item} />
-              ))}
-            </Box>
-          )}
-        </Animated.ScrollView>
-      )}
+        )}
+      </Box>
+      {isSearchInputFocus || textSearchSubmit.length
+        ? renderSearchResult()
+        : renderRecommendMovies()}
     </ScreenShell>
+  );
+};
+
+const SearchScreen = () => {
+  return (
+    <BottomSheetModalProvider>
+      <SearchScreenComponent />
+    </BottomSheetModalProvider>
   );
 };
 

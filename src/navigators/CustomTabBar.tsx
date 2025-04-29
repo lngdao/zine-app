@@ -13,6 +13,11 @@ import { Text } from '@/components/text';
 import { Box } from '@/components/box';
 import ReactNativeHapticFeedback from 'react-native-haptic-feedback';
 import { rgba } from '@/shared/utils/common';
+import {
+  useAnimatedStyle,
+  useSharedValue,
+  withTiming,
+} from 'react-native-reanimated';
 
 const CustomTabBar: React.FC<BottomTabBarProps> = ({
   state,
@@ -20,13 +25,33 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({
   navigation,
 }) => {
   const { bottom: bottomInset } = useSafeAreaInsets();
+  const translateY = useSharedValue(0);
+
   const [isHomeTabRefetch, setIsHomeTabRefetch] = React.useState(false);
+
+  const animatedStyle = useAnimatedStyle(() => ({
+    transform: [{ translateY: translateY.value }],
+  }));
 
   const handleTabTap = useCallback((tabName: string) => {
     DeviceEventEmitter.emit(`${tabName}`);
   }, []);
 
   useEffect(() => {
+    const eventFilterOpen = DeviceEventEmitter.addListener(
+      'emitter_filter_open',
+      () => {
+        translateY.value = withTiming(TAB_BAR_HEIGHT + 20, { duration: 300 });
+      },
+    );
+
+    const eventFilterClose = DeviceEventEmitter.addListener(
+      'emitter_filter_close',
+      () => {
+        translateY.value = withTiming(0, { duration: 300 });
+      },
+    );
+
     const listener = DeviceEventEmitter.addListener(
       'home-refetch',
       ({ refetchStatus }) => {
@@ -35,18 +60,21 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({
     );
 
     return () => {
+      eventFilterOpen.remove();
+      eventFilterClose.remove();
       listener.remove();
     };
   }, []);
 
   return (
-    <Box
+    <Box.Animated
       absolute
       height={TAB_BAR_HEIGHT}
       bottom={0}
       wFull
       row
       bg={Platform.OS === 'android' ? rgba('#000000', 0.5) : 'transparent'}
+      style={animatedStyle}
     >
       <BlurView
         overlayColor={'#00000000'}
@@ -129,7 +157,7 @@ const CustomTabBar: React.FC<BottomTabBarProps> = ({
           </Box>
         );
       })}
-    </Box>
+    </Box.Animated>
   );
 };
 

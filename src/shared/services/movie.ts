@@ -54,78 +54,38 @@ export const getRecentMoviesV3 = ({
   return instance.get(`danh-sach/phim-moi-cap-nhat-v3?${queryString}`).json();
 };
 
-export const getMoviesByCategory = ({
-  category,
-  page,
-  limit,
-}: {
+export const getMoviesByCategory = (payload: {
   category: string;
   page?: number;
   limit?: number;
 }): Promise<ApiResponsePagination<MovieCommon>> => {
-  const params: { category: string; page?: number; limit?: number } = {
-    category,
-  };
+  const queryString = qs.stringify(payload, { skipNulls: true });
 
-  if (page) {
-    params.page = page;
-  }
-
-  if (limit) {
-    params.limit = limit;
-  }
-
-  const queryString = qs.stringify(params, { skipNulls: true });
-
-  return instance.get(`v1/api/danh-sach/${category}?${queryString}`).json();
+  return instance
+    .get(`v1/api/danh-sach/${payload.category}?${queryString}`)
+    .json();
 };
 
-export const getMoviesByGenre = ({
-  genre,
-  page,
-  limit,
-}: {
+export const getMoviesByGenre = (payload: {
   genre: string;
   page?: number;
   limit?: number;
 }): Promise<ApiResponsePagination<MovieCommon>> => {
-  const params: { genre: string; page?: number; limit?: number } = { genre };
+  const queryString = qs.stringify(payload, { skipNulls: true });
 
-  if (page) {
-    params.page = page;
-  }
-
-  if (limit) {
-    params.limit = limit;
-  }
-
-  const queryString = qs.stringify(params, { skipNulls: true });
-
-  return instance.get(`v1/api/the-loai/${genre}?${queryString}`).json();
+  return instance.get(`v1/api/the-loai/${payload.genre}?${queryString}`).json();
 };
 
-export const getMoviesByRegion = ({
-  region,
-  page,
-  limit,
-}: {
+export const getMoviesByRegion = (payload: {
   region: string;
   page?: number;
   limit?: number;
 }): Promise<ApiResponsePagination<MovieCommon>> => {
-  const params: { region: string; page?: number; limit?: number } = { region };
+  const queryString = qs.stringify(payload, { skipNulls: true });
 
-  if (page) {
-    params.page = page;
-  }
-
-  if (limit) {
-    params.limit = limit;
-  }
-
-  const queryString = qs.stringify(params, { skipNulls: true });
-
-  return instance.get(`v1/api/quoc-gia/${region}?${queryString}`).json();
+  return instance
+    .get(`v1/api/quoc-gia/${payload.region}?${queryString}`)
+    .json();
 };
 
 export const getMoviesByYear = (payload: {
@@ -138,38 +98,26 @@ export const getMoviesByYear = (payload: {
   return instance.get(`v1/api/nam/${payload.year}?${queryString}`).json();
 };
 
-export const getMoviesByKeyword = ({
-  keyword,
-  page,
-}: {
+export const getMoviesByKeyword = (payload: {
   keyword: string;
   page?: number;
+  limit?: number;
 }): Promise<ApiResponsePagination<MovieCommon>> => {
-  const params: { keyword: string; page?: number } = {
-    keyword,
-  };
-
-  if (page) {
-    params.page = page;
-  }
-
-  const queryString = qs.stringify(params, { skipNulls: true });
+  const queryString = qs.stringify(payload, { skipNulls: true });
 
   return instance.get(`v1/api/tim-kiem?${queryString}`).json();
 };
 
-export const getMovies = ({
-  type_list,
-  page,
-  limit,
-  year,
-}: {
+export const getMovies = (payload: {
   type_list: string;
   page?: number;
   limit?: number;
   year?: string;
+  category?: string;
 }): Promise<ApiResponsePagination<MovieCommon>> => {
-  const queryString = qs.stringify({ page, limit, year }, { skipNulls: true });
+  const queryString = qs.stringify(payload, { skipNulls: true });
 
-  return instance.get(`v1/api/danh-sach/${type_list}?${queryString}`).json();
+  return instance
+    .get(`v1/api/danh-sach/${payload.type_list}?${queryString}`)
+    .json();
 };

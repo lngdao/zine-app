@@ -332,17 +332,17 @@
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.mono0926.LicensePlist/react</string>
+			<string>com.mono0926.LicensePlist/React</string>
 			<key>Title</key>
-			<string>react</string>
+			<string>React</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
 		<dict>
 			<key>File</key>
-			<string>com.mono0926.LicensePlist/React</string>
+			<string>com.mono0926.LicensePlist/react</string>
 			<key>Title</key>
-			<string>React</string>
+			<string>react</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>
@@ -519,6 +519,14 @@
 			<string>com.mono0926.LicensePlist/react-native-orientation-director</string>
 			<key>Title</key>
 			<string>react-native-orientation-director</string>
+			<key>Type</key>
+			<string>PSChildPaneSpecifier</string>
+		</dict>
+		<dict>
+			<key>File</key>
+			<string>com.mono0926.LicensePlist/react-native-pager-view</string>
+			<key>Title</key>
+			<string>react-native-pager-view</string>
 			<key>Type</key>
 			<string>PSChildPaneSpecifier</string>
 		</dict>

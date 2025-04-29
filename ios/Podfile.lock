@@ -1407,6 +1407,27 @@ PODS:
     - ReactCommon/turbomodule/bridging
     - ReactCommon/turbomodule/core
     - Yoga
+  - react-native-pager-view (6.7.1):
+    - DoubleConversion
+    - glog
+    - hermes-engine
+    - RCT-Folly (= 2024.01.01.00)
+    - RCTRequired
+    - RCTTypeSafety
+    - React-Core
+    - React-debug
+    - React-Fabric
+    - React-featureflags
+    - React-graphics
+    - React-ImageManager
+    - React-NativeModulesApple
+    - React-RCTFabric
+    - React-rendererdebug
+    - React-utils
+    - ReactCodegen
+    - ReactCommon/turbomodule/bridging
+    - ReactCommon/turbomodule/core
+    - Yoga
   - react-native-safe-area-context (4.14.1):
     - React-Core
   - react-native-turbo-image (1.22.1):
@@ -2044,6 +2065,7 @@ DEPENDENCIES:
   - react-native-mmkv (from `../node_modules/react-native-mmkv`)
   - "react-native-netinfo (from `../node_modules/@react-native-community/netinfo`)"
   - react-native-orientation-director (from `../node_modules/react-native-orientation-director`)
+  - react-native-pager-view (from `../node_modules/react-native-pager-view`)
   - react-native-safe-area-context (from `../node_modules/react-native-safe-area-context`)
   - react-native-turbo-image (from `../node_modules/react-native-turbo-image`)
   - react-native-video (from `../node_modules/react-native-video`)
@@ -2194,6 +2216,8 @@ EXTERNAL SOURCES:
     :path: "../node_modules/@react-native-community/netinfo"
   react-native-orientation-director:
     :path: "../node_modules/react-native-orientation-director"
+  react-native-pager-view:
+    :path: "../node_modules/react-native-pager-view"
   react-native-safe-area-context:
     :path: "../node_modules/react-native-safe-area-context"
   react-native-turbo-image:
@@ -2334,6 +2358,7 @@ SPEC CHECKSUMS:
   react-native-mmkv: f84bf6f48c906911695f9cd16d39d4fb78fcd5a4
   react-native-netinfo: cec9c4e86083cb5b6aba0e0711f563e2fbbff187
   react-native-orientation-director: 8d396599e48b08341cc1d983f8519147aee80e01
+  react-native-pager-view: 8d100bc29c69855e6764a68beb85d0d7b0fbb447
   react-native-safe-area-context: 758e894ca5a9bd1868d2a9cfbca7326a2b6bf9dc
   react-native-turbo-image: cf0bbe4bc98effc02c122caab60693f6695fdc52
   react-native-video: 21f9d7a613922011904e97299fc430c252da034f

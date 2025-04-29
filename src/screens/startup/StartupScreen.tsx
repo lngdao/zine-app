@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { ActivityIndicator, StyleSheet } from 'react-native';
+import { ActivityIndicator, Image, StyleSheet } from 'react-native';
 import { Text } from '@/components/text';
 import {
   useSharedValue,
@@ -11,6 +11,8 @@ import {
 import { Box } from '@/components/box';
 import { delay } from '@/shared/utils/common';
 import { isIpad, isIphoneX } from '@/config';
+import R from '@/assets';
+import useScreenDimensions from '@/shared/hooks/useScreenDimensions';
 
 interface Props {
   onDone: () => void;
@@ -19,6 +21,8 @@ interface Props {
 const StartupScreen = ({ onDone }: Props) => {
   const loadOpacity = useSharedValue(0);
   const screenOpacity = useSharedValue(1);
+
+  const { screenWidth } = useScreenDimensions();
 
   useEffect(() => {
     loadOpacity.value = withDelay(
@@ -53,22 +57,32 @@ const StartupScreen = ({ onDone }: Props) => {
     <Box.Animated
       style={[screenStyle, StyleSheet.absoluteFillObject]}
       flex
-      bg={'#121212'}
+      bg={'#000'}
       center
     >
-      <Text size={64} fontFamily={Text.fonts.inter.black} color={'#FFFFFF'}>
-        ZINE
-      </Text>
+      <Image
+        source={R.images.logo}
+        style={{
+          aspectRatio: 1,
+          width: screenWidth / 1.5,
+          height: screenWidth / 1.5,
+        }}
+      />
       <Box wFull absolute center bottom={isIphoneX || isIpad() ? 30 : 20}>
         <Box.Animated style={loadStyle}>
           <ActivityIndicator size={'small'} />
         </Box.Animated>
         <Box w={'75%'} mt={15}>
           <Text size={10} color={'#747474'} textAlign={'center'}>
-            {/* ZINE is a mobile application focused on streaming movies, offering a
-            seamless and immersive viewing experience */}
-            ZINE là một ứng dụng di động tập trung vào việc xem phim trực tuyến,
-            mang đến trải nghiệm xem liền mạch và nhanh chóng
+            <Text
+              size={12}
+              color={'#747474'}
+              fontFamily={Text.fonts.inter.extraBold}
+            >
+              ZINE
+            </Text>{' '}
+            là một ứng dụng di động tập trung vào việc xem phim trực tuyến, mang
+            đến trải nghiệm xem liền mạch và nhanh chóng
           </Text>
         </Box>
       </Box>

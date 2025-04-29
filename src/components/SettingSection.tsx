@@ -1,6 +1,6 @@
 import React, { PropsWithChildren } from 'react';
 import { Box, BoxProps } from '@/components/box';
-import { Touchable } from '@/components/button';
+import { Touchable, TouchableProps } from '@/components/button';
 import { Text } from '@/components/text';
 import Monicon from '@monicon/native';
 
@@ -11,8 +11,16 @@ interface SettingGroupProps extends PropsWithChildren {
 }
 
 interface SettingItemProps {
-  leftIcon?: React.ReactNode;
+  readOnly?: boolean;
   title: string;
+  subTitle?: string;
+  addTitle?: string;
+  showRightIcon?: boolean;
+  showSeparate?: boolean;
+  isDanger?: boolean;
+  _renderRight?: React.ReactNode;
+  onPress?: () => void;
+  $touchableProps?: TouchableProps;
 }
 
 const SettingGroup = ({
@@ -73,7 +81,7 @@ const SettingItem = ({
   _renderRight,
   onPress,
   $touchableProps,
-}: any) => {
+}: SettingItemProps) => {
   const _defaultRenderRight = (() => {
     return subTitle ? (
       <Text size={13} color="#9f9fa2">
