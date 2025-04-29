@@ -7708,10 +7708,10 @@ snake-case@^3.0.4:
     dot-case "^3.0.4"
     tslib "^2.0.3"
 
-sonner-native@^0.16.2:
-  version "0.16.2"
-  resolved "https://registry.yarnpkg.com/sonner-native/-/sonner-native-0.16.2.tgz#046fd9c750c08f51546bb2b9b53fc940f8c7bc7d"
-  integrity sha512-IxiqcwZ2ZqmbtMWWhFq/um31hQndEUOa9ERnhS7+Z7lc0v9b9boa9pjHtNRoDktJ/OzEOMb1ERyr2bCNYNdUog==
+sonner-native@0.19.0:
+  version "0.19.0"
+  resolved "https://registry.yarnpkg.com/sonner-native/-/sonner-native-0.19.0.tgz#6db6e52d9bafd33bd5c4dac8dd738d6430f62e10"
+  integrity sha512-uB8KLODTona/Lc+CqC3FCqNJ7n22YZW8k86z8o0X5U+uu1uayM17Nv+ThyHbjPSn/QwCNUp24gW7pI4xY/an5A==
 
 source-map-js@^1.0.1:
   version "1.2.1"
