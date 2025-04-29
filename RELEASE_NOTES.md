@@ -1,5 +1,5 @@
-# v1.0.6
+# v1.1.0
 
-* Fix home top carousel animation issues
-* Add OSS licences
-* Public ZINE source code & add github action for auto build
+* A new era for ZINE
+* Add filter feature
+* Fix some stuff
